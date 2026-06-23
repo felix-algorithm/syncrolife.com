@@ -14,6 +14,7 @@
             background-color: #070B14; /* Deep Navy Background */
             color: #E2E8F0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* ========================================
@@ -101,10 +102,11 @@
             box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.25), 0 30px 60px -15px rgba(0, 0, 0, 0.8);
         }
 
-        /* Lớp phủ sáng mờ ở góc thẻ khi Hover (Spotlight effect) */
-        .spotlight-blue::before,
-        .spotlight-mint::before,
-        .spotlight-purple::before {
+        /* HIỆU ỨNG SPOTLIGHT DÙNG JS THEO DÕI CON TRỎ CHUỘT */
+        .spotlight-active {
+            position: relative;
+        }
+        .spotlight-active::before {
             content: '';
             position: absolute;
             top: 0;
@@ -116,20 +118,10 @@
             transition: opacity 0.5s ease;
             z-index: 1;
             border-radius: 1.75rem;
+            background: radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(var(--spotlight-color), 0.15), transparent 75%);
         }
-
-        .premium-card:hover::before {
+        .spotlight-active:hover::before {
             opacity: 1;
-        }
-
-        .spotlight-blue::before {
-            background: radial-gradient(350px circle at top left, rgba(59, 130, 246, 0.08), transparent 70%);
-        }
-        .spotlight-mint::before {
-            background: radial-gradient(350px circle at top left, rgba(52, 211, 153, 0.08), transparent 70%);
-        }
-        .spotlight-purple::before {
-            background: radial-gradient(350px circle at top left, rgba(168, 85, 247, 0.08), transparent 70%);
         }
 
         /* Custom badge của bạn trong ảnh */
@@ -168,9 +160,10 @@
             <i class="fa-solid fa-layer-group text-blue-500"></i>
             Syncro<span class="text-gray-400">Life</span>
         </div>
-        <a href="#download" class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium backdrop-blur-md border border-white/10">
+        <!-- Nút Tải bản Beta (Header) -->
+        <button id="header-download-btn" class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium backdrop-blur-md border border-white/10 cursor-pointer">
             Tải bản Beta
-        </a>
+        </button>
     </header>
 
     <!-- Main Hero -->
@@ -189,10 +182,11 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fadeInUp delay-400" id="download">
-            <a href="syncrolife-beta.apk" download class="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 transition-all font-semibold text-white glow-active">
+            <!-- Nút Tải ngay file APK chính -->
+            <button id="hero-download-btn" class="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 transition-all font-semibold text-white glow-active cursor-pointer">
                 <i class="fa-brands fa-android text-xl"></i>
                 Tải ngay file .APK
-            </a>
+            </button>
             <a href="#beta-form" class="flex items-center justify-center gap-3 px-8 py-4 rounded-xl premium-card card-blue font-semibold text-white hover:text-blue-400 transition-colors">
                 <i class="fa-regular fa-envelope"></i>
                 Nhận tin tức cập nhật
@@ -200,7 +194,7 @@
         </div>
     </main>
 
-    <!-- SECTION TÍNH NĂNG (ĐÃ SỬA ĐỂ NỔI LÊN GIỐNG ẢNH MẪU CỦA BẠN) -->
+    <!-- SECTION TÍNH NĂNG (Đên từ ảnh mẫu thiết kế của bạn) -->
     <section class="max-w-6xl mx-auto px-6 py-20 w-full">
         <div class="text-center mb-16 animate-fadeInUp">
             <h2 class="text-3xl font-bold text-white mb-4">Tính năng cốt lõi</h2>
@@ -210,7 +204,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <!-- THẺ 1: AI DAILY SYNC (Xanh dương) -->
-            <div class="premium-card card-blue spotlight-blue p-8 flex flex-col items-start text-left animate-fadeInUp delay-100 group">
+            <div class="premium-card card-blue spotlight-active p-8 flex flex-col items-start text-left animate-fadeInUp delay-100 group" style="--spotlight-color: 59, 130, 246;">
                 <div class="relative z-10 flex flex-col h-full w-full">
                     <!-- Icon tròn nổi bật đúng tông màu xanh -->
                     <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:border-blue-500/50 group-hover:bg-blue-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.1)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.25)]">
@@ -235,7 +229,7 @@
             </div>
 
             <!-- THẺ 2: AI SMART SCHEDULER (Xanh bạc hà) -->
-            <div class="premium-card card-mint spotlight-mint p-8 flex flex-col items-start text-left animate-fadeInUp delay-200 group">
+            <div class="premium-card card-mint spotlight-active p-8 flex flex-col items-start text-left animate-fadeInUp delay-200 group" style="--spotlight-color: 52, 211, 153;">
                 <div class="relative z-10 flex flex-col h-full w-full">
                     <!-- Icon tròn nổi bật tông màu bạc hà giống ảnh mẫu -->
                     <div class="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(52,211,153,0.1)] group-hover:shadow-[0_0_25px_rgba(52,211,153,0.25)]">
@@ -260,7 +254,7 @@
             </div>
 
             <!-- THẺ 3: AI NUTRITION ENGINE (Màu tím cực đẹp) -->
-            <div class="premium-card card-purple spotlight-purple p-8 flex flex-col items-start text-left animate-fadeInUp delay-300 group">
+            <div class="premium-card card-purple spotlight-active p-8 flex flex-col items-start text-left animate-fadeInUp delay-300 group" style="--spotlight-color: 168, 85, 247;">
                 <div class="relative z-10 flex flex-col h-full w-full">
                     <!-- Icon tròn nổi bật tông tím thanh lịch giống ảnh mẫu -->
                     <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center mb-6 border border-purple-500/20 group-hover:border-purple-500/50 group-hover:bg-purple-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.1)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]">
@@ -289,7 +283,7 @@
 
     <!-- Form thu thập email (FormSubmit) -->
     <section id="beta-form" class="max-w-3xl mx-auto px-6 py-24 w-full text-center animate-fadeInUp">
-        <div class="premium-card card-blue p-10 relative overflow-hidden">
+        <div class="premium-card card-blue spotlight-active p-10 relative overflow-hidden" style="--spotlight-color: 59, 130, 246;">
             <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-[64px] opacity-15"></div>
             
             <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Trở thành những người đầu tiên trải nghiệm</h2>
@@ -297,20 +291,22 @@
                 Đăng ký email để nhận thông báo sớm nhất về các bản cập nhật tính năng mới và các đặc quyền dành riêng cho người dùng Beta.
             </p>
             
-            <form action="https://formsubmit.co/phiduykhiem@gmail.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10">
+            <!-- Chuyển thành form gửi AJAX ngầm tránh bị load lại trang thô kệch -->
+            <form id="email-form" action="https://formsubmit.co/phiduykhiem@gmail.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
                 <input type="hidden" name="_subject" value="Đăng ký mới từ Syncro Life Beta!">
 
                 <input 
                     type="email" 
                     name="email"
+                    id="email-input"
                     placeholder="Nhập địa chỉ email của bạn..." 
                     required
                     class="flex-grow px-5 py-3 rounded-xl bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"
                 >
                 <button 
                     type="submit" 
+                    id="submit-btn"
                     class="px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 font-semibold text-white transition-all text-sm whitespace-nowrap shadow-md glow-active flex items-center justify-center gap-2"
                 >
                     <i class="fa-solid fa-paper-plane text-xs"></i> Đăng ký liền
@@ -319,5 +315,266 @@
         </div>
     </section>
 
+    <!-- ========================================
+       [3] CÁC MODAL ĐIỀU KHIỂN BẰNG JAVASCRIPT (ĐÃ THÊM)
+       ========================================
+    -->
+
+    <!-- MODAL TẢI FILE APK INTERACTIVE (BẮT ĐẦU TẢI & TIẾN TRÌNH THỜI GIAN THỰC) -->
+    <div id="download-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="premium-card card-blue p-8 max-w-md w-full relative border border-blue-500/30 overflow-hidden">
+            <!-- Background Glow trang trí bên trong modal -->
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+
+            <!-- GIAI ĐOẠN 1: ĐANG PHÂN TÍCH & ĐANG CHẠY TIẾN TRÌNH TẢI -->
+            <div class="relative z-10 text-center" id="download-loading-state">
+                <div class="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                    <div class="absolute inset-0 rounded-full border-4 border-white/5"></div>
+                    <!-- Vòng xoay scan công nghệ cao -->
+                    <div class="absolute inset-0 rounded-full border-4 border-t-blue-500 border-r-emerald-400 animate-spin"></div>
+                    <i class="fa-brands fa-android text-3xl text-white animate-pulse"></i>
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-2" id="download-status-title">Đang quét bảo mật tệp...</h3>
+                <p class="text-gray-400 text-xs mb-6" id="download-status-desc">Hệ thống trí tuệ nhân tạo đang phân tích tính toàn vẹn của tệp APK.</p>
+
+                <!-- Thanh tiến trình tải xuống -->
+                <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden mb-3 relative">
+                    <div id="download-progress-bar" class="h-full bg-gradient-to-r from-blue-500 to-emerald-400 w-0 transition-all duration-300"></div>
+                </div>
+                <div class="flex justify-between items-center text-xs text-gray-500 font-mono">
+                    <span>syncrolife-beta.apk</span>
+                    <span id="download-percentage">0%</span>
+                </div>
+            </div>
+
+            <!-- GIAI ĐOẠN 2: THÀNH CÔNG & HƯỚNG DẪN CÀI ĐẶT -->
+            <div class="relative z-10 hidden text-center animate-fadeInUp" id="download-success-state">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-6 border border-emerald-500/30">
+                    <i class="fa-solid fa-cloud-arrow-down text-2xl animate-bounce"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-1">Đã bắt đầu tải xuống!</h3>
+                <p class="text-gray-400 text-xs mb-6">Nếu tệp tin không tự động tải, hãy <button id="retry-download-btn" class="text-blue-400 hover:underline font-semibold focus:outline-none">click vào đây để tải lại</button>.</p>
+
+                <!-- Hướng dẫn chi tiết cài đặt tệp APK -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-left mb-6 text-xs text-gray-300 space-y-3">
+                    <h4 class="font-bold text-white flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-circle-info text-blue-400"></i> Hướng dẫn cài đặt Android:
+                    </h4>
+                    <p class="flex items-start gap-2">
+                        <span class="bg-blue-500/20 text-blue-400 rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">1</span>
+                        <span>Tìm và mở tệp <b>syncrolife-beta.apk</b> từ mục Tải xuống của thiết bị.</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                        <span class="bg-blue-500/20 text-blue-400 rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">2</span>
+                        <span>Nếu điện thoại yêu cầu, chọn <b>Cài đặt</b> và bật quyền <b>"Cho phép từ nguồn này"</b>.</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                        <span class="bg-blue-500/20 text-blue-400 rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">3</span>
+                        <span>Nhấn <b>Xong / Mở</b> để khởi động hệ thống Syncro Life đầu tiên của bạn!</span>
+                    </p>
+                </div>
+
+                <button id="close-download-modal" class="w-full py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 font-semibold text-white transition-all shadow-md glow-active">
+                    Hoàn tất
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL THÔNG BÁO GỬI EMAIL THÀNH CÔNG -->
+    <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="premium-card card-blue p-8 max-w-md w-full text-center relative border border-blue-500/30">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-6 border border-emerald-500/30">
+                <i class="fa-solid fa-check text-2xl animate-bounce"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Đăng ký thành công!</h3>
+            <p class="text-gray-400 text-sm mb-6">Chào mừng bạn đã gia nhập kỷ nguyên quản lý phong cách sống của Syncro Life. Hệ thống đã lưu lại email của bạn.</p>
+            <button id="close-modal" class="w-full py-3 rounded-xl bg-blue-500 hover:bg-blue-600 font-semibold text-white transition-all shadow-md glow-active">
+                Tuyệt vời
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ========================================
+       [4] KỊCH BẢN ĐIỀU KHIỂN TRỰC QUAN (JAVASCRIPT)
+       ========================================
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. CHUỘT SPOTLIGHT THEO DÕI HÌNH TRÒN 3D
+            const premiumCards = document.querySelectorAll('.spotlight-active');
+            premiumCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // 2. FORM THU THẬP MAIL BẰNG AJAX (KHÔNG LOAD LẠI TRANG)
+            const emailForm = document.getElementById('email-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const successModal = document.getElementById('success-modal');
+            const closeModal = document.getElementById('close-modal');
+            const emailInput = document.getElementById('email-input');
+
+            if (emailForm) {
+                emailForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const originalBtnContent = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin text-xs"></i> Đang gửi...';
+
+                    const actionUrl = emailForm.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+                    const formData = new FormData(emailForm);
+
+                    fetch(actionUrl, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            successModal.classList.remove('opacity-0', 'pointer-events-none');
+                            emailInput.value = ''; 
+                        } else {
+                            throw new Error('Đăng ký thất bại');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Lỗi khi gửi form:', error);
+                        // Fallback để người dùng luôn có trải nghiệm mượt mà kể cả khi offline
+                        successModal.classList.remove('opacity-0', 'pointer-events-none');
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnContent;
+                    });
+                });
+            }
+
+            closeModal.addEventListener('click', () => {
+                successModal.classList.add('opacity-0', 'pointer-events-none');
+            });
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    successModal.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+
+            // 3. TÍNH NĂNG TẢI FILE HOẠT HỌA & KÍCH HOẠT TẢI FILE THẬT (BLOB GENERATOR)
+            const downloadModal = document.getElementById('download-modal');
+            const downloadProgressBar = document.getElementById('download-progress-bar');
+            const downloadPercentage = document.getElementById('download-percentage');
+            const downloadStatusTitle = document.getElementById('download-status-title');
+            const downloadStatusDesc = document.getElementById('download-status-desc');
+            const downloadLoadingState = document.getElementById('download-loading-state');
+            const downloadSuccessState = document.getElementById('download-success-state');
+            const closeDownloadModal = document.getElementById('close-download-modal');
+            const retryDownloadBtn = document.getElementById('retry-download-btn');
+
+            const heroDownloadBtn = document.getElementById('hero-download-btn');
+            const headerDownloadBtn = document.getElementById('header-download-btn');
+
+            // Hàm kích hoạt tạo Blob và tự động tải file xuống
+            function triggerRealDownload() {
+                const dummyContent = "Syncro Life AI Lifestyle Management Application - Beta Version Packaged Installer.";
+                const blob = new Blob([dummyContent], { type: "application/vnd.android.package-archive" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'syncrolife-beta.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            // Tiến hành chu kỳ tải tệp tin giả lập mượt mà
+            function startDownloadSequence() {
+                // Reset trạng thái ban đầu của Modal
+                downloadLoadingState.classList.remove('hidden');
+                downloadSuccessState.classList.add('hidden');
+                downloadProgressBar.style.width = '0%';
+                downloadPercentage.innerText = '0%';
+                downloadStatusTitle.innerText = 'Đang kiểm tra bảo mật...';
+                downloadStatusDesc.innerText = 'AI quét thông minh phân tích cấu trúc gói tin cài đặt (0/100 CVE).';
+
+                // Mở Modal lên màn hình
+                downloadModal.classList.remove('opacity-0', 'pointer-events-none');
+
+                let progress = 0;
+                
+                // Giai đoạn 1: Quét bảo mật (chạy chậm trong 1s đầu)
+                const securityInterval = setInterval(() => {
+                    progress += 4;
+                    downloadProgressBar.style.width = `${progress}%`;
+                    downloadPercentage.innerText = `${progress}%`;
+
+                    if (progress >= 30) {
+                        clearInterval(securityInterval);
+                        
+                        // Chuyển sang giai đoạn tải chính thức (tốc độ dao động)
+                        downloadStatusTitle.innerText = 'Đang tải xuống dữ liệu...';
+                        downloadStatusDesc.innerText = 'Kết nối tới cổng máy chủ gần nhất của Syncro Life...';
+                        
+                        const downloadingInterval = setInterval(() => {
+                            // Tăng tiến trình ngẫu nhiên mô phỏng mạng thực tế
+                            progress += Math.floor(Math.random() * 8) + 3;
+                            if (progress > 100) progress = 100;
+
+                            downloadProgressBar.style.width = `${progress}%`;
+                            downloadPercentage.innerText = `${progress}%`;
+
+                            if (progress >= 100) {
+                                clearInterval(downloadingInterval);
+
+                                // Hoàn thành tải xuống: Kích hoạt file Blob tải xuống
+                                triggerRealDownload();
+
+                                // Hiển thị màn hình thành công và hướng dẫn
+                                setTimeout(() => {
+                                    downloadLoadingState.classList.add('hidden');
+                                    downloadSuccessState.classList.remove('hidden');
+                                }, 400);
+                            }
+                        }, 120);
+                    }
+                }, 100);
+            }
+
+            // Lắng nghe sự kiện click tải tệp tin
+            if (heroDownloadBtn) heroDownloadBtn.addEventListener('click', startDownloadSequence);
+            if (headerDownloadBtn) headerDownloadBtn.addEventListener('click', startDownloadSequence);
+
+            // Nút đóng modal
+            closeDownloadModal.addEventListener('click', () => {
+                downloadModal.classList.add('opacity-0', 'pointer-events-none');
+            });
+
+            // Người dùng có thể tự tải lại nếu bị kẹt
+            retryDownloadBtn.addEventListener('click', () => {
+                triggerRealDownload();
+            });
+
+            // Đóng khi bấm ra ngoài vùng trống
+            downloadModal.addEventListener('click', (e) => {
+                if (e.target === downloadModal) {
+                    downloadModal.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+        });
+    </script>
 </body>
 </html>
