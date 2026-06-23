@@ -146,7 +146,6 @@
 </head>
 <body class="antialiased min-h-screen flex flex-col relative">
 
-    <!-- Khối cầu chuyển động nền nhẹ nhàng -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-[-1] pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-15" 
              style="animation: slowDrift 15s infinite ease-in-out;"></div>
@@ -154,19 +153,16 @@
              style="animation: slowDrift 18s infinite ease-in-out; animation-delay: 2s;"></div>
     </div>
 
-    <!-- Header -->
     <header class="w-full p-6 flex justify-between items-center max-w-6xl mx-auto animate-fadeInUp">
         <div class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
             <i class="fa-solid fa-layer-group text-blue-500"></i>
             Syncro<span class="text-gray-400">Life</span>
         </div>
-        <!-- Nút Tải bản Beta (Header) -->
         <button id="header-download-btn" class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium backdrop-blur-md border border-white/10 cursor-pointer">
             Tải bản Beta
         </button>
     </header>
 
-    <!-- Main Hero -->
     <main class="flex-grow flex flex-col items-center justify-center px-6 pt-16 pb-24 text-center max-w-4xl mx-auto">
         <div class="inline-block mb-4 px-4 py-1.5 premium-card card-mint border border-emerald-500/20 text-xs font-semibold tracking-wide text-emerald-400 uppercase animate-fadeInUp delay-100">
             <i class="fa-solid fa-bolt mr-2 animate-pulse"></i> Trí tuệ nhân tạo (AI) Thế mới
@@ -182,7 +178,6 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-fadeInUp delay-400" id="download">
-            <!-- Nút Tải ngay file APK chính -->
             <button id="hero-download-btn" class="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 transition-all font-semibold text-white glow-active cursor-pointer">
                 <i class="fa-brands fa-android text-xl"></i>
                 Tải ngay file .APK
@@ -194,7 +189,6 @@
         </div>
     </main>
 
-    <!-- SECTION TÍNH NĂNG (Đên từ ảnh mẫu thiết kế của bạn) -->
     <section class="max-w-6xl mx-auto px-6 py-20 w-full">
         <div class="text-center mb-16 animate-fadeInUp">
             <h2 class="text-3xl font-bold text-white mb-4">Tính năng cốt lõi</h2>
@@ -203,23 +197,15 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- THẺ 1: AI DAILY SYNC (Xanh dương) -->
             <div class="premium-card card-blue spotlight-active p-8 flex flex-col items-start text-left animate-fadeInUp delay-100 group" style="--spotlight-color: 59, 130, 246;">
                 <div class="relative z-10 flex flex-col h-full w-full">
-                    <!-- Icon tròn nổi bật đúng tông màu xanh -->
                     <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:border-blue-500/50 group-hover:bg-blue-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.1)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.25)]">
                         <i class="fa-solid fa-rotate text-blue-400 text-xl group-hover:rotate-180 transition-transform duration-700"></i>
                     </div>
-                    
-                    <!-- Tiêu đề thẻ trắng tinh -->
                     <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">AI Daily Sync</h3>
-                    
-                    <!-- Nội dung miêu tả sắc nét dễ đọc -->
                     <p class="text-gray-400 text-sm leading-relaxed mb-8">
                         Phân tích lịch trình và tự động tìm khoảng trống thời gian. Ví dụ: AI nhận diện khoảng trống 45 phút giữa cuộc họp 2 PM và 4 PM để đề xuất một buổi Cardio.
                     </p>
-                    
-                    <!-- Badge dưới cùng đúng tỷ lệ trong ảnh mẫu -->
                     <div class="mt-auto">
                         <span class="custom-badge bg-blue-500/10 text-blue-400 border border-blue-500/20">
                             Productivity Mode
@@ -228,23 +214,15 @@
                 </div>
             </div>
 
-            <!-- THẺ 2: AI SMART SCHEDULER (Xanh bạc hà) -->
             <div class="premium-card card-mint spotlight-active p-8 flex flex-col items-start text-left animate-fadeInUp delay-200 group" style="--spotlight-color: 52, 211, 153;">
                 <div class="relative z-10 flex flex-col h-full w-full">
-                    <!-- Icon tròn nổi bật tông màu bạc hà giống ảnh mẫu -->
                     <div class="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(52,211,153,0.1)] group-hover:shadow-[0_0_25px_rgba(52,211,153,0.25)]">
                         <i class="fa-solid fa-calendar-day text-emerald-400 text-xl"></i>
                     </div>
-                    
-                    <!-- Tiêu đề thẻ -->
                     <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors duration-300">AI Smart Scheduler</h3>
-                    
-                    <!-- Nội dung miêu tả -->
                     <p class="text-gray-400 text-sm leading-relaxed mb-8">
                         Lịch trình động tương tác mượt mà. Nút "Sync" sẽ tự động sắp xếp lại ngày của bạn. Khối công việc (task blocks) có thể kéo thả và tự động điều chỉnh nếu xung đột với mục tiêu cá nhân.
                     </p>
-                    
-                    <!-- Phần chân để trống hoặc bổ sung badge mờ để đồng nhất bố cục nếu thích -->
                     <div class="mt-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span class="custom-badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                             Auto Balance
@@ -253,23 +231,15 @@
                 </div>
             </div>
 
-            <!-- THẺ 3: AI NUTRITION ENGINE (Màu tím cực đẹp) -->
             <div class="premium-card card-purple spotlight-active p-8 flex flex-col items-start text-left animate-fadeInUp delay-300 group" style="--spotlight-color: 168, 85, 247;">
                 <div class="relative z-10 flex flex-col h-full w-full">
-                    <!-- Icon tròn nổi bật tông tím thanh lịch giống ảnh mẫu -->
                     <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center mb-6 border border-purple-500/20 group-hover:border-purple-500/50 group-hover:bg-purple-500/20 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.1)] group-hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]">
                         <i class="fa-solid fa-utensils text-purple-400 text-xl"></i>
                     </div>
-                    
-                    <!-- Tiêu đề thẻ -->
                     <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300">AI Nutrition Engine</h3>
-                    
-                    <!-- Nội dung miêu tả -->
                     <p class="text-gray-400 text-sm leading-relaxed mb-8">
                         Gợi ý thực đơn cá nhân hóa dựa trên BMI và dị ứng. Hiển thị nhãn dinh dưỡng, mức ngân sách ($ đến $$$), và tự động tạo "Smart Grocery List" (Danh sách đi chợ).
                     </p>
-                    
-                    <!-- Badge xanh lá "Health Match" đúng tỉ lệ trong ảnh mẫu -->
                     <div class="mt-auto">
                         <span class="custom-badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                             Health Match: 98%
@@ -281,7 +251,6 @@
         </div>
     </section>
 
-    <!-- Form thu thập email (FormSubmit) -->
     <section id="beta-form" class="max-w-3xl mx-auto px-6 py-24 w-full text-center animate-fadeInUp">
         <div class="premium-card card-blue spotlight-active p-10 relative overflow-hidden" style="--spotlight-color: 59, 130, 246;">
             <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-[64px] opacity-15"></div>
@@ -291,7 +260,6 @@
                 Đăng ký email để nhận thông báo sớm nhất về các bản cập nhật tính năng mới và các đặc quyền dành riêng cho người dùng Beta.
             </p>
             
-            <!-- Chuyển thành form gửi AJAX ngầm tránh bị load lại trang thô kệch -->
             <form id="email-form" action="https://formsubmit.co/phiduykhiem@gmail.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="Đăng ký mới từ Syncro Life Beta!">
@@ -315,23 +283,14 @@
         </div>
     </section>
 
-    <!-- ========================================
-       [3] CÁC MODAL ĐIỀU KHIỂN BẰNG JAVASCRIPT (ĐÃ THÊM)
-       ========================================
-    -->
-
-    <!-- MODAL TẢI FILE APK INTERACTIVE (BẮT ĐẦU TẢI & TIẾN TRÌNH THỜI GIAN THỰC) -->
     <div id="download-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-500">
         <div class="premium-card card-blue p-8 max-w-md w-full relative border border-blue-500/30 overflow-hidden">
-            <!-- Background Glow trang trí bên trong modal -->
             <div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
             <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
 
-            <!-- GIAI ĐOẠN 1: ĐANG PHÂN TÍCH & ĐANG CHẠY TIẾN TRÌNH TẢI -->
             <div class="relative z-10 text-center" id="download-loading-state">
                 <div class="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                     <div class="absolute inset-0 rounded-full border-4 border-white/5"></div>
-                    <!-- Vòng xoay scan công nghệ cao -->
                     <div class="absolute inset-0 rounded-full border-4 border-t-blue-500 border-r-emerald-400 animate-spin"></div>
                     <i class="fa-brands fa-android text-3xl text-white animate-pulse"></i>
                 </div>
@@ -339,7 +298,6 @@
                 <h3 class="text-xl font-bold text-white mb-2" id="download-status-title">Đang quét bảo mật tệp...</h3>
                 <p class="text-gray-400 text-xs mb-6" id="download-status-desc">Hệ thống trí tuệ nhân tạo đang phân tích tính toàn vẹn của tệp APK.</p>
 
-                <!-- Thanh tiến trình tải xuống -->
                 <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden mb-3 relative">
                     <div id="download-progress-bar" class="h-full bg-gradient-to-r from-blue-500 to-emerald-400 w-0 transition-all duration-300"></div>
                 </div>
@@ -349,7 +307,6 @@
                 </div>
             </div>
 
-            <!-- GIAI ĐOẠN 2: THÀNH CÔNG & HƯỚNG DẪN CÀI ĐẶT -->
             <div class="relative z-10 hidden text-center animate-fadeInUp" id="download-success-state">
                 <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-6 border border-emerald-500/30">
                     <i class="fa-solid fa-cloud-arrow-down text-2xl animate-bounce"></i>
@@ -357,7 +314,6 @@
                 <h3 class="text-2xl font-bold text-white mb-1">Đã bắt đầu tải xuống!</h3>
                 <p class="text-gray-400 text-xs mb-6">Nếu tệp tin không tự động tải, hãy <button id="retry-download-btn" class="text-blue-400 hover:underline font-semibold focus:outline-none">click vào đây để tải lại</button>.</p>
 
-                <!-- Hướng dẫn chi tiết cài đặt tệp APK -->
                 <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-left mb-6 text-xs text-gray-300 space-y-3">
                     <h4 class="font-bold text-white flex items-center gap-2 mb-1">
                         <i class="fa-solid fa-circle-info text-blue-400"></i> Hướng dẫn cài đặt Android:
@@ -383,7 +339,6 @@
         </div>
     </div>
 
-    <!-- MODAL THÔNG BÁO GỬI EMAIL THÀNH CÔNG -->
     <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
         <div class="premium-card card-blue p-8 max-w-md w-full text-center relative border border-blue-500/30">
             <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-6 border border-emerald-500/30">
@@ -397,11 +352,6 @@
         </div>
     </div>
 
-
-    <!-- ========================================
-       [4] KỊCH BẢN ĐIỀU KHIỂN TRỰC QUAN (JAVASCRIPT)
-       ========================================
-    -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -452,7 +402,6 @@
                     })
                     .catch(error => {
                         console.error('Lỗi khi gửi form:', error);
-                        // Fallback để người dùng luôn có trải nghiệm mượt mà kể cả khi offline
                         successModal.classList.remove('opacity-0', 'pointer-events-none');
                     })
                     .finally(() => {
@@ -472,7 +421,7 @@
             });
 
 
-            // 3. TÍNH NĂNG TẢI FILE HOẠT HỌA & KÍCH HOẠT TẢI FILE THẬT (BLOB GENERATOR)
+            // 3. TÍNH NĂNG TẢI FILE HOẠT HỌA & KÍCH HOẠT ĐƯỜNG DẪN THẬT
             const downloadModal = document.getElementById('download-modal');
             const downloadProgressBar = document.getElementById('download-progress-bar');
             const downloadPercentage = document.getElementById('download-percentage');
@@ -486,23 +435,19 @@
             const heroDownloadBtn = document.getElementById('hero-download-btn');
             const headerDownloadBtn = document.getElementById('header-download-btn');
 
-            // Hàm kích hoạt tạo Blob và tự động tải file xuống
+            // ĐÃ SỬA: Hàm kích hoạt tải file thật trực tiếp từ bộ lưu trữ của GitHub Pages
             function triggerRealDownload() {
-                const dummyContent = "Syncro Life AI Lifestyle Management Application - Beta Version Packaged Installer.";
-                const blob = new Blob([dummyContent], { type: "application/vnd.android.package-archive" });
-                const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
-                a.href = url;
+                // Gọi trực tiếp file thật nằm cùng thư mục trên GitHub
+                a.href = 'syncrolife-beta.apk'; 
                 a.download = 'syncrolife-beta.apk';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-                URL.revokeObjectURL(url);
             }
 
             // Tiến hành chu kỳ tải tệp tin giả lập mượt mà
             function startDownloadSequence() {
-                // Reset trạng thái ban đầu của Modal
                 downloadLoadingState.classList.remove('hidden');
                 downloadSuccessState.classList.add('hidden');
                 downloadProgressBar.style.width = '0%';
@@ -510,27 +455,23 @@
                 downloadStatusTitle.innerText = 'Đang kiểm tra bảo mật...';
                 downloadStatusDesc.innerText = 'AI quét thông minh phân tích cấu trúc gói tin cài đặt (0/100 CVE).';
 
-                // Mở Modal lên màn hình
                 downloadModal.classList.remove('opacity-0', 'pointer-events-none');
 
                 let progress = 0;
                 
-                // Giai đoạn 1: Quét bảo mật (chạy chậm trong 1s đầu)
                 const securityInterval = setInterval(() => {
-                    progress += 4;
+                    progress += 5;
                     downloadProgressBar.style.width = `${progress}%`;
                     downloadPercentage.innerText = `${progress}%`;
 
                     if (progress >= 30) {
                         clearInterval(securityInterval);
                         
-                        // Chuyển sang giai đoạn tải chính thức (tốc độ dao động)
                         downloadStatusTitle.innerText = 'Đang tải xuống dữ liệu...';
                         downloadStatusDesc.innerText = 'Kết nối tới cổng máy chủ gần nhất của Syncro Life...';
                         
                         const downloadingInterval = setInterval(() => {
-                            // Tăng tiến trình ngẫu nhiên mô phỏng mạng thực tế
-                            progress += Math.floor(Math.random() * 8) + 3;
+                            progress += Math.floor(Math.random() * 8) + 4;
                             if (progress > 100) progress = 100;
 
                             downloadProgressBar.style.width = `${progress}%`;
@@ -539,35 +480,30 @@
                             if (progress >= 100) {
                                 clearInterval(downloadingInterval);
 
-                                // Hoàn thành tải xuống: Kích hoạt file Blob tải xuống
+                                // Kích hoạt tải file thật
                                 triggerRealDownload();
 
-                                // Hiển thị màn hình thành công và hướng dẫn
                                 setTimeout(() => {
                                     downloadLoadingState.classList.add('hidden');
                                     downloadSuccessState.classList.remove('hidden');
                                 }, 400);
                             }
-                        }, 120);
+                        }, 100);
                     }
-                }, 100);
+                }, 80);
             }
 
-            // Lắng nghe sự kiện click tải tệp tin
             if (heroDownloadBtn) heroDownloadBtn.addEventListener('click', startDownloadSequence);
             if (headerDownloadBtn) headerDownloadBtn.addEventListener('click', startDownloadSequence);
 
-            // Nút đóng modal
             closeDownloadModal.addEventListener('click', () => {
                 downloadModal.classList.add('opacity-0', 'pointer-events-none');
             });
 
-            // Người dùng có thể tự tải lại nếu bị kẹt
             retryDownloadBtn.addEventListener('click', () => {
                 triggerRealDownload();
             });
 
-            // Đóng khi bấm ra ngoài vùng trống
             downloadModal.addEventListener('click', (e) => {
                 if (e.target === downloadModal) {
                     downloadModal.classList.add('opacity-0', 'pointer-events-none');
