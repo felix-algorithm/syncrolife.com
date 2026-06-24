@@ -302,7 +302,7 @@
                     <div id="download-progress-bar" class="h-full bg-gradient-to-r from-blue-500 to-emerald-400 w-0 transition-all duration-300"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-gray-500 font-mono">
-                    <span>syncrolife-beta.apk</span>
+                    <span>syncrolife.apk</span>
                     <span id="download-percentage">0%</span>
                 </div>
             </div>
@@ -320,7 +320,7 @@
                     </h4>
                     <p class="flex items-start gap-2">
                         <span class="bg-blue-500/20 text-blue-400 rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">1</span>
-                        <span>Tìm và mở tệp <b>syncrolife-beta.apk</b> từ mục Tải xuống của thiết bị.</span>
+                        <span>Tìm và mở tệp <b>syncrolife.apk</b> từ mục Tải xuống của thiết bị.</span>
                     </p>
                     <p class="flex items-start gap-2">
                         <span class="bg-blue-500/20 text-blue-400 rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">2</span>
@@ -439,8 +439,8 @@
             function triggerRealDownload() {
                 const a = document.createElement('a');
                 // Gọi trực tiếp file thật nằm cùng thư mục trên GitHub
-                a.href = 'syncrolife-beta.apk'; 
-                a.download = 'syncrolife-beta.apk';
+                a.href = 'syncrolife.apk'; 
+                a.download = 'syncrolife.apk';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
