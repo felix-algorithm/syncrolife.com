@@ -146,7 +146,6 @@
 </head>
 <body class="antialiased min-h-screen flex flex-col relative">
 
-    <!-- Khối cầu chuyển động nền nhẹ nhàng -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-[-1] pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-15" 
              style="animation: slowDrift 15s infinite ease-in-out;"></div>
@@ -154,7 +153,6 @@
              style="animation: slowDrift 18s infinite ease-in-out; animation-delay: 2s;"></div>
     </div>
 
-    <!-- Header -->
     <header class="w-full p-6 flex justify-between items-center max-w-6xl mx-auto animate-fadeInUp">
         <div class="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
             <i class="fa-solid fa-layer-group text-blue-500"></i>
@@ -165,7 +163,6 @@
         </button>
     </header>
 
-    <!-- Main Hero -->
     <main class="flex-grow flex flex-col items-center justify-center px-6 pt-16 pb-24 text-center max-w-4xl mx-auto">
         <div class="inline-block mb-4 px-4 py-1.5 premium-card card-mint border border-emerald-500/20 text-xs font-semibold tracking-wide text-emerald-400 uppercase animate-fadeInUp delay-100">
             <i class="fa-solid fa-bolt mr-2 animate-pulse"></i> Trí tuệ nhân tạo (AI) Thế mới
@@ -192,7 +189,6 @@
         </div>
     </main>
 
-    <!-- SECTION TÍNH NĂNG -->
     <section class="max-w-6xl mx-auto px-6 py-20 w-full">
         <div class="text-center mb-16 animate-fadeInUp">
             <h2 class="text-3xl font-bold text-white mb-4">Tính năng cốt lõi</h2>
@@ -255,7 +251,7 @@
         </div>
     </section>
 
-    <!-- Form thu thập email -->
+    <!-- Section Form Email -->
     <section id="beta-form" class="max-w-3xl mx-auto px-6 py-24 w-full text-center animate-fadeInUp">
         <div class="premium-card card-blue spotlight-active p-10 relative overflow-hidden" style="--spotlight-color: 59, 130, 246;">
             <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-[64px] opacity-15"></div>
@@ -318,7 +314,7 @@
                     <i class="fa-solid fa-cloud-arrow-down text-2xl animate-bounce"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-1">Đã bắt đầu tải xuống!</h3>
-                <p class="text-gray-400 text-xs mb-6">Nếu tệp tin không tự động tải, hãy <button id="retry-download-btn" class="text-blue-400 hover:underline font-semibold focus:outline-none">click vào đây để tải lại</button>.</p>
+                <p class="text-gray-400 text-xs mb-6">Nếu tệp tin không tự động tải, hãy <a id="retry-download-btn" href="#" target="_blank" class="text-blue-400 hover:underline font-semibold focus:outline-none">click vào đây để tải lại</a>.</p>
 
                 <div class="bg-white/5 border border-white/10 rounded-2xl p-4 text-left mb-6 text-xs text-gray-300 space-y-3">
                     <h4 class="font-bold text-white flex items-center gap-2 mb-1">
@@ -345,6 +341,7 @@
         </div>
     </div>
 
+    <!-- Modal Thông báo thành công -->
     <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
         <div class="premium-card card-blue p-8 max-w-md w-full text-center relative border border-blue-500/30">
             <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-6 border border-emerald-500/30">
@@ -369,13 +366,19 @@
             // CẤU HÌNH LIÊN KẾT TẢI FILE (GOOGLE DRIVE)
             // ==========================================
             const USE_DRIVE = true; // Bật "true" để tải từ Google Drive, "false" để tải file cục bộ từ GitHub
-            const DRIVE_FILE_ID = '1HWgKReoYHv40dddjOjeKRHyapXRec2ge'; // <--- HÃY THAY MÃ ID FILE DRIVE CỦA BẠN VÀO ĐÂY
+            const DRIVE_FILE_ID = '1HWgKReoYHv40dddjOjeKRHyapXRec2ge'; // <--- ID FILE DRIVE THẬT CỦA BẠN ĐÃ ĐƯỢC THAY VÀO ĐÂY
             const LOCAL_FILE_NAME = 'syncrolife.apk'; // Tên file cục bộ nếu để USE_DRIVE = false
 
             // Cập nhật nhãn tên file tải hiển thị trong Modal
             const labelFileName = document.getElementById('label-filename-downloading');
             if (labelFileName) {
-                labelFileName.innerText = USE_DRIVE ? 'syncrolife-drive.apk' : LOCAL_FILE_NAME;
+                labelFileName.innerText = USE_DRIVE ? 'syncrolife.apk' : LOCAL_FILE_NAME;
+            }
+
+            // Gán link tải Google Drive trực tiếp cho nút "tải lại" để tránh bị chặn hoàn toàn
+            const retryDownloadBtn = document.getElementById('retry-download-btn');
+            if (retryDownloadBtn && USE_DRIVE) {
+                retryDownloadBtn.href = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
             }
 
             // 1. CHUỘT SPOTLIGHT THEO DÕI HÌNH TRÒN 3D
@@ -453,20 +456,21 @@
             const downloadLoadingState = document.getElementById('download-loading-state');
             const downloadSuccessState = document.getElementById('download-success-state');
             const closeDownloadModal = document.getElementById('close-download-modal');
-            const retryDownloadBtn = document.getElementById('retry-download-btn');
 
             const heroDownloadBtn = document.getElementById('hero-download-btn');
             const headerDownloadBtn = document.getElementById('header-download-btn');
 
             // Hàm kích hoạt tải xuống tệp thực tế hoặc chuyển đổi sang Chế độ Demo
             async function triggerRealDownload() {
+                const driveDownloadUrl = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
+                
                 // Trường hợp 1: Chọn tải từ Google Drive
                 if (USE_DRIVE) {
                     if (DRIVE_FILE_ID && DRIVE_FILE_ID !== 'YOUR_DRIVE_FILE_ID_HERE') {
-                        const driveDownloadUrl = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
+                        // ĐÃ SỬA: Đưa trở lại phương pháp tạo thẻ <a> ẩn để mở tab mới theo yêu cầu của bạn
                         const a = document.createElement('a');
                         a.href = driveDownloadUrl;
-                        a.target = '_blank'; // Mở tab mới để kích hoạt download của Drive
+                        a.target = '_blank';
                         document.body.appendChild(a);
                         a.click();
                         document.body.removeChild(a);
@@ -600,10 +604,6 @@
 
             closeDownloadModal.addEventListener('click', () => {
                 downloadModal.classList.add('opacity-0', 'pointer-events-none');
-            });
-
-            retryDownloadBtn.addEventListener('click', () => {
-                triggerRealDownload();
             });
 
             downloadModal.addEventListener('click', (e) => {
