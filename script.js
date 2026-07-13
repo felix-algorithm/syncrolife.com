@@ -10,7 +10,7 @@ const scrollProgress = document.querySelector("[data-scroll-progress]");
 const cursorSpotlight = document.querySelector("[data-cursor-spotlight]");
 const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const pointerFineQuery = window.matchMedia("(pointer: fine)");
-const apkDownloadUrl = "https://github.com/felix-algorithm/syncrolife.com/releases/download/v1.0.0/app-release.apk";
+const apkDownloadUrl = "https://github.com/felix-algorithm/syncrolife.com/releases/download/v1.0.0/syncrolife.apk";
 
 const savedTheme = localStorage.getItem("syncro-theme");
 if (savedTheme) {
